@@ -1,28 +1,37 @@
-<!DOCTYPE html>
 <html>
-
-<head>
-  <title>New Tab</title>
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="icon" href="./chrome-gray.png" />
-</head>
-
-<body>
-  <div class="container">
-    <label for="url-input">[ URL ]</label>
-    <br />
-    <br />
-    <input id="url-input" type="url" placeholder="https://google.com" />
-    <br />
-    <br />
-    <button onclick="run()">Open</button>
-    <script src="./script.js">
-      Your browser does not support Javascript.
+ 
+  <head>
+  </head>
+ 
+  <body>
+    <button>Fullscreen</button>
+    <script>
+      var urlObj = new window.URL(window.location.href);
+      var url = "https://www.www.www.obitrani.ipv64.net/";
+      if (url) {
+        var win;
+ 
+        document.querySelector('button').onclick = function() {
+          if (win) {
+            win.focus();
+          } else {
+            win = window.open();
+            win.document.body.style.margin = '0';
+            win.document.body.style.height = '100vh';
+            var iframe = win.document.createElement('iframe');
+            iframe.style.border = 'none';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.margin = '0';
+            iframe.src = url;
+            win.document.body.appendChild(iframe);
+          }
+          document.querySelector('button').style.bacground = 'grey';
+          document.querySelector('button').innerHTML = "Play Now";
+        };
+      }
+ 
     </script>
-    <center>
-      <footer>Created by glisterk (2023)</footer>
-    </center>
-  </div>
-</body>
-
+  </body>
+ 
 </html>
